@@ -7,6 +7,11 @@ class DiscService{
     getDiscs(){
         fetch(`${this.endpoint}/discs`)
         .then(resp => resp.json())
-        .then(discs => console.log(discs))
+        .then(discs => {
+            for(const disc of discs){
+                let d = new Disc(disc)
+                d.slapOnDom()
+            }
+        })
     }
 }
