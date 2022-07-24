@@ -35,10 +35,13 @@ class Disc {
 
     handleClick = (e) => {
         if(e.target.innerText === 'Edit Disc'){
+            e.target.innerText = "Save Disc"
             this.createEditForm()
         }else if(e.target.innerText === 'Delete Disc'){
 
         }else if(e.target.innerText === 'Save Disc'){
+            e.target.innerText = "Edit Disc"
+            this.updateItemInfo()
 
         }
     }
@@ -51,6 +54,13 @@ class Disc {
             let name = element.classList[0];
             element.outerHTML = `<input type="text" class="edit-${name}" value="${inputValue}">` 
         }
+    }
+
+    updateItemInfo(){
+        debugger
+        this.name = this.element.querySelector(".edit-disc-name").value;
+        this.brand = this.element.querySelector(".edit-brand").value;
+        discSerivce.updateDisc()
     }
     
     
