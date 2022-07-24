@@ -38,7 +38,7 @@ class Disc {
             e.target.innerText = "Save Disc"
             this.createEditForm()
         }else if(e.target.innerText === 'Delete Disc'){
-
+            discSerivce.deleteDisc(e)
         }else if(e.target.innerText === 'Save Disc'){
             e.target.innerText = "Edit Disc"
             this.updateItemInfo()
@@ -56,13 +56,14 @@ class Disc {
         }
     }
 
-    updateItemInfo(){
-        debugger
-        this.name = this.element.querySelector(".edit-disc-name").value;
-        this.brand = this.element.querySelector(".edit-brand").value;
-        discSerivce.updateDisc()
-    }
-    
+    // updateItemInfo(){
+    //     debugger
+    //     this.name = this.element.querySelector(".edit-disc-name").value;
+    //     this.brand = this.element.querySelector(".edit-brand").value;
+    //     discSerivce.updateDisc()
+    // }
+
+      
     
     slapOnDom(){
         Disc.cont.appendChild(this.render())

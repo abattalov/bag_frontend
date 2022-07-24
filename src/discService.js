@@ -49,32 +49,45 @@ class DiscService{
 
     }
 
-    updateDisc(disc){
-        const {brand, name, speed, glide, turn, fade, plastic, weight, bag, bag_id, id} = disc
-        const discInfo = {
-            name,
-            brand,
-            speed,
-            glide,
-            turn,
-            fade,
-            plastic,
-            weight,
-            bag,
-            bag_id,
-            id
-        }
+    // updateDisc(disc){
+    //     const {brand, name, speed, glide, turn, fade, plastic, weight, bag, bag_id, id} = disc
+    //     const discInfo = {
+    //         name,
+    //         brand,
+    //         speed,
+    //         glide,
+    //         turn,
+    //         fade,
+    //         plastic,
+    //         weight,
+    //         bag,
+    //         bag_id,
+    //         id
+    //     }
 
-        const configObj = {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: 'application/json'
-            },
-            body: JSON.stringify(discInfo)
-        }
+    //     const configObj = {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             Accept: 'application/json'
+    //         },
+    //         body: JSON.stringify(discInfo)
+    //     }
 
-        fetch(`${this.endpoint}/discs/${id}`, configObj)
-        .then(disc.render())
+    //     fetch(`${this.endpoint}/discs/${id}`, configObj)
+    //     .then(disc.render())
+    // }
+
+    deleteDisc(e){
+        const id = e.target.dataset.id
+
+        e.target.parentElement.remove()
+        fetch(`${this.endpoint}/discs/${id}`, {method: 'DELETE'})
+        .then(resp => resp.json())
+        .then(json => alert(json.message))
+
+
+            
     }
+
 }
