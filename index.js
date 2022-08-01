@@ -21,6 +21,7 @@ form.addEventListener('submit', handleSubmit)
 function handleSubmit(e){
     e.preventDefault();
     discSerivce.createDiscs()
+    form.reset()
 }
 
 function showForm(){
