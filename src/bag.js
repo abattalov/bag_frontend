@@ -9,6 +9,6 @@ class Bag{
         const option = document.createElement('option');
         option.value = this.id
         option.innerText = this.name
-        dropdown.appendChild(option)
+        bagDropdownValue.appendChild(option)
     }
 }

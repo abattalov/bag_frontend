@@ -3,7 +3,6 @@ const discSerivce = new DiscService(endpoint);
 const bagService = new BagService(endpoint);
 
 const form = document.getElementById("disc-form");
-const dropdown = document.getElementById('bag-dropdown');
 const nameValue = document.getElementById('disc-name');
 const brandValue = document.getElementById('disc-brand')
 const speedValue = document.getElementById ('disc-speed')
@@ -22,4 +21,14 @@ form.addEventListener('submit', handleSubmit)
 function handleSubmit(e){
     e.preventDefault();
     discSerivce.createDiscs()
+}
+
+function showForm(){
+    const discForm = document.getElementById('disc-form')
+
+    if (discForm.style.display === "block") {
+        discForm.style.display = "none";
+    } else {
+        discForm.style.display = "block";
+    }
 }

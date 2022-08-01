@@ -39,12 +39,15 @@ class DiscService{
             body: JSON.stringify(discInfo)
         }
 
-
+    
         fetch(`${this.endpoint}/discs`, configObj)
         .then(resp => resp.json())
         .then(data => {
             const d = new Disc(data)
             d.slapOnDom()
+        })
+        .catch(e => {
+            console.log(e)
         })
 
     }

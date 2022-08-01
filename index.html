@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>DiscBag</title>
 </head>
 <body>
 
+    <h2>Disc Bag!</h2>
+    <button onclick="showForm()" id="button-form">Add a Disc</button>
+
     <div id="disc-form-container">
-        <h2>Add a Disc:</h2>
+        
         <form id="disc-form">
+            <h2>Add a Disc:</h2>
             <label for="disc-name">Disc Name:</label>
             <input type="text" name="disc_name" id="disc-name"> <br><br>
             <label for="disc-brand">Brand:</label>

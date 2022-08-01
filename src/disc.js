@@ -41,7 +41,7 @@ class Disc {
             discSerivce.deleteDisc(e)
         }else if(e.target.innerText === 'Save Disc'){
             e.target.innerText = "Edit Disc"
-            this.updateItemInfo()
+            // this.updateItemInfo()
 
         }
     }
@@ -57,7 +57,6 @@ class Disc {
     }
 
     // updateItemInfo(){
-    //     debugger
     //     this.name = this.element.querySelector(".edit-disc-name").value;
     //     this.brand = this.element.querySelector(".edit-brand").value;
     //     discSerivce.updateDisc()
@@ -68,4 +67,5 @@ class Disc {
     slapOnDom(){
         Disc.cont.appendChild(this.render())
     }
+
 }
