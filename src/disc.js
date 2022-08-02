@@ -11,7 +11,7 @@ class Disc {
         this.fade = fade, 
         this.plastic = plastic,
         this.weight = weight,
-        this.bag_id = bag_id,
+        this.bagId = bag_id,
         this.bag = bag
 
         this.element = document.createElement('li');
@@ -26,6 +26,7 @@ class Disc {
         <div data-id="${this.id}">
         <h2 class="disc-name">${this.name}</h2>
         <p class="brand">${this.brand}</p>
+        <p class="bagId">${this.bag.id}</p>
         </div>
         <button class="edit" data-id=${this.id}>Edit Disc</button>
         <button class="delete" data-id=${this.id}>Delete Disc</button>
@@ -68,4 +69,19 @@ class Disc {
         Disc.cont.appendChild(this.render())
     }
 
+    static filteredByBag(filteredBag){
+        if(filteredBag){
+            for(const i of Disc.all){
+                if(i.bag.id === parseInt(filteredBag.id)){
+                    i.element.style.display = ""
+                }else{
+                    i.element.style.display = "none"
+                }
+            }
+        }else{
+            for(const i of Disc.all){
+                i.element.style.display = ""
+            }
+        }
+    }
 }

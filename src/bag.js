@@ -4,11 +4,14 @@ class Bag{
     constructor({name, id}){
         this.name = name
         this.id = id
+        this.active = false
 
-        this.element = document.createElement('li');
+        this.element = document.createElement('button');
         this.element.dataset['id'] = id;
         this.element.id = `bag-${id}`;
-        this.element.addEventListener('click', this.handleClick)
+        this.element.addEventListener('click', this.setActiveBag)
+
+        Bag.all.push(this)
     }
 
 
@@ -25,17 +28,30 @@ class Bag{
     }
 
     render(){
-        this.element.innerHTML = `
-        <div data-id="${this.id}">
-        <h2>${this.name}</h2>
-        </div>
-        <button>Delete Bag</button>`
+        this.element.innerHTML = this.name
 
         return this.element
     }
 
     slapOnDom(){
         Bag.bagCont.appendChild(this.render())
+    }
+
+    setActiveBag = (e) => {
+        let filteredBag
+
+        Bag.all.forEach(b => {
+            if(b.element === this.element && !this.active){
+                b.element.classList.add('activated')
+                b.active = true
+                filteredBag = b
+                
+            }else{
+                b.element.classList.remove('activated')
+                b.active = false
+            }
+            Disc.filteredByBag(filteredBag)
+        })
     }
 
 
