@@ -13,4 +13,29 @@ class BagService{
             }
         })
     }
+
+    createBag(){
+        const bagInfo = {
+            bag: {
+                name: bagNameValue.value
+            }
+        }
+
+        const configObj = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(bagInfo)
+        }
+
+
+        fetch(`${this.endpoint}/bags`, configObj)
+        .then(resp => resp.json())
+        .then(data => {
+            const b = new Bag(data)
+            b.slapOnDom()
+        })
+    }
 }
