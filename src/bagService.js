@@ -10,6 +10,7 @@ class BagService{
             for(const bag of bags){
                 let b = new Bag(bag)
                 b.addToDropdown()
+                b.slapOnDom()
             }
         })
     }
@@ -37,5 +38,11 @@ class BagService{
             const b = new Bag(data)
             b.slapOnDom()
         })
+    }
+
+    deleteBag(e){
+        const id = e.target.dataset.id
+
+        e.target.parentElement.remove()
     }
 }
