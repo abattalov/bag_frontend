@@ -14,22 +14,39 @@ class Disc {
         this.bagId = bag_id,
         this.bag = bag
 
-        this.element = document.createElement('li');
+        this.element = document.getElementById('disc-table').insertRow();
         this.element.dataset['id'] = id;
         this.element.id = `disc-${id}`;
         this.element.addEventListener('click', this.handleClick)
         Disc.all.push(this)
     }
 
+    // render(){
+    //     this.element.innerHTML = `
+    //     <div data-id="${this.id}">
+    //     <p class="disc-name">${this.name}</p>
+    //     <p class="brand">${this.brand}</p>
+    //     <p class="bagId">${this.bag.id}</p>
+    //     </div>
+    //     <button class="delete" data-id=${this.id}>Delete Disc</button>
+    //     `
+    //     return this.element
+    // }
+
     render(){
         this.element.innerHTML = `
-        <div data-id="${this.id}">
-        <h2 class="disc-name">${this.name}</h2>
-        <p class="brand">${this.brand}</p>
-        <p class="bagId">${this.bag.id}</p>
-        </div>
-        <button class="edit" data-id=${this.id}>Edit Disc</button>
+        
+        <td>${this.name}</td>
+        <td>${this.brand}</td>
+        <td>${this.speed}</td>
+        <td>${this.glide}</td>
+        <td>${this.turn}</td>
+        <td>${this.fade}</td> 
+        <td>${this.plastic}</td>
+        <td>${this.weight}</td>
+        
         <button class="delete" data-id=${this.id}>Delete Disc</button>
+    
         `
         return this.element
     }
@@ -80,7 +97,7 @@ class Disc {
             }
         }else{
             for(const i of Disc.all){
-                i.element.style.display = ""
+                // i.element.style.display = ""
             }
         }
     }
