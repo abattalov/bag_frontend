@@ -14,7 +14,7 @@ class Disc {
         this.bagId = bag_id,
         this.bag = bag
 
-        this.element = document.getElementById('disc-table').insertRow();
+        this.element = document.createElement('tr');
         this.element.dataset['id'] = id;
         this.element.id = `disc-${id}`;
         this.element.addEventListener('click', this.handleClick)
@@ -48,7 +48,10 @@ class Disc {
         <button class="delete" data-id=${this.id}>Delete Disc</button>
     
         `
-        return this.element
+        let discTable = document.getElementById('disc-table')
+        let newRow = discTable.insertRow()
+        newRow.innerHTML += this.element.innerHTML
+        return discTable
     }
 
     handleClick = (e) => {

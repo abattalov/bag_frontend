@@ -2,7 +2,17 @@
     display: none;
 }
 
-table, th, td, tr {
+#discs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+th, td {
     border: 1px solid;
-    table-layout: fixed;
-  }
+    padding: 10px;
+}
+
+#disc-table {
+    margin-bottom: 10px;
+}
