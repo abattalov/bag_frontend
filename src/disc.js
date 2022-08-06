@@ -17,7 +17,6 @@ class Disc {
         this.element = document.createElement('tr');
         this.element.dataset['id'] = id;
         this.element.id = `disc-${id}`;
-        this.element.addEventListener('click', this.handleClick)
         Disc.all.push(this)
     }
 
@@ -34,7 +33,7 @@ class Disc {
     // }
 
     render(){
-        this.element.innerHTML = `
+        let discDetails = this.element.innerHTML = `
         
         <td>${this.name}</td>
         <td>${this.brand}</td>
@@ -50,8 +49,10 @@ class Disc {
         `
         let discTable = document.getElementById('disc-table')
         let newRow = discTable.insertRow()
-        newRow.innerHTML += this.element.innerHTML
+        newRow.innerHTML += discDetails
+        newRow.addEventListener('click', this.handleClick)
         return discTable
+        
     }
 
     handleClick = (e) => {
