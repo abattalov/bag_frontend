@@ -2,8 +2,10 @@ const endpoint = "http://localhost:3000/"
 const discSerivce = new DiscService(endpoint);
 const bagService = new BagService(endpoint);
 
-const form = document.getElementById("disc-form");
+const discForm = document.getElementById("disc-form");
+const bagForm = document.getElementById('bag-form');
 const nameValue = document.getElementById('disc-name');
+const bagNameValue = document.getElementById('bag-name');
 const brandValue = document.getElementById('disc-brand');
 const speedValue = document.getElementById ('disc-speed');
 const glideValue = document.getElementById ('disc-glide');
@@ -16,12 +18,19 @@ const bagDropdownValue = document.getElementById('bag-dropdown');
 discSerivce.getDiscs()
 bagService.getBag()
 
-form.addEventListener('submit', handleSubmit)
+discForm.addEventListener('submit', handleSubmit)
+bagForm.addEventListener('submit', handleBagSubmit)
 
 function handleSubmit(e){
     e.preventDefault();
     discSerivce.createDiscs()
     form.reset()
+}
+
+function handleBagSubmit(e){
+    e.preventDefault();
+    bagService.createBag();
+    bagForm.reset()
 }
 
 function showForm(){

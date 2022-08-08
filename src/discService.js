@@ -47,7 +47,7 @@ class DiscService{
             d.slapOnDom()
         })
         .catch(e => {
-            console.log(e)
+            console.log(e) //add real catch
         })
 
     }
