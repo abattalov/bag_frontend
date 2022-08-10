@@ -54,14 +54,11 @@ class DiscService{
 
     deleteDisc(e){
         const id = e.target.dataset.id
-
         e.target.parentElement.remove()
+
         fetch(`${this.endpoint}/discs/${id}`, {method: 'DELETE'})
         .then(resp => resp.json())
-        .then(json => alert(json.message))
-
-
-            
+        .then(json => alert(json.message))    
     }
 
 }

@@ -39,19 +39,16 @@ class Bag{
 
     setActiveBag = (e) => {
         let filteredBag
-        let table = document.getElementById('disc-table')
 
         Bag.all.forEach(b => {
             if(b.element === this.element && !this.active){
                 b.element.classList.add('activated')
                 b.active = true
                 filteredBag = b
-                Disc.filteredByBag(filteredBag)
-                // table.style.display = ''             
+                Disc.filteredByBag(filteredBag)            
             }else{
                 b.element.classList.remove('activated')
                 b.active = false
-                // table.style.display = 'none' 
             }
             
         })

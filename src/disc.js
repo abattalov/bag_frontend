@@ -47,6 +47,8 @@ class Disc {
     handleClick = (e) => {
         if(e.target.innerText === 'Delete Disc'){
             discSerivce.deleteDisc(e)
+            let filteredDiscArray = Disc.all.filter(disc => disc.id != parseInt(e.target.dataset.id))
+            Disc.all = filteredDiscArray
         }
     }
 
