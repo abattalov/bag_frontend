@@ -46,13 +46,14 @@ class Bag{
                 b.element.classList.add('activated')
                 b.active = true
                 filteredBag = b
-                table.style.display = ''             
+                Disc.filteredByBag(filteredBag)
+                // table.style.display = ''             
             }else{
                 b.element.classList.remove('activated')
                 b.active = false
-                table.style.display = 'none' 
+                // table.style.display = 'none' 
             }
-            Disc.filteredByBag(filteredBag)
+            
         })
     }
 

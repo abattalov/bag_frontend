@@ -16,21 +16,9 @@ class Disc {
 
         this.element = document.createElement('tr');
         this.element.dataset['id'] = id;
-        this.element.id = `disc-${id}`;
+        // this.element.id = `disc-${id}`;
         Disc.all.push(this)
     }
-
-    // render(){
-    //     this.element.innerHTML = `
-    //     <div data-id="${this.id}">
-    //     <p class="disc-name">${this.name}</p>
-    //     <p class="brand">${this.brand}</p>
-    //     <p class="bagId">${this.bag.id}</p>
-    //     </div>
-    //     <button class="delete" data-id=${this.id}>Delete Disc</button>
-    //     `
-    //     return this.element
-    // }
 
     render(){
         let discDetails = this.element.innerHTML = `
@@ -49,6 +37,7 @@ class Disc {
         `
         let discTable = document.getElementById('disc-table')
         let newRow = discTable.insertRow()
+        newRow.id = `disc-${this.id}`
         newRow.innerHTML += discDetails
         newRow.addEventListener('click', this.handleClick)
         return discTable
@@ -56,15 +45,8 @@ class Disc {
     }
 
     handleClick = (e) => {
-        if(e.target.innerText === 'Edit Disc'){
-            e.target.innerText = "Save Disc"
-            this.createEditForm()
-        }else if(e.target.innerText === 'Delete Disc'){
+        if(e.target.innerText === 'Delete Disc'){
             discSerivce.deleteDisc(e)
-        }else if(e.target.innerText === 'Save Disc'){
-            e.target.innerText = "Edit Disc"
-            // this.updateItemInfo()
-
         }
     }
 
@@ -77,13 +59,6 @@ class Disc {
             element.outerHTML = `<input type="text" class="edit-${name}" value="${inputValue}">` 
         }
     }
-
-    // updateItemInfo(){
-    //     this.name = this.element.querySelector(".edit-disc-name").value;
-    //     this.brand = this.element.querySelector(".edit-brand").value;
-    //     discSerivce.updateDisc()
-    // }
-
       
     
     slapOnDom(){
@@ -94,9 +69,13 @@ class Disc {
         if(filteredBag){
             for(const i of Disc.all){
                 if(i.bag.id === parseInt(filteredBag.id)){
-                    i.element.style.display = ""
+                    // i.element.style.display = ""
+                    let a = document.getElementById(`disc-${i.id}`)
+                    a.style.display = ''
                 }else{
-                    i.element.style.display = "none"
+                    // i.element.style.display = "none"
+                    let a = document.getElementById(`disc-${i.id}`)
+                    a.style.display = 'none'
                 }
             }
         }else{

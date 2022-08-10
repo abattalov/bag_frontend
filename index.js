@@ -24,7 +24,7 @@ bagForm.addEventListener('submit', handleBagSubmit)
 function handleSubmit(e){
     e.preventDefault();
     discSerivce.createDiscs()
-    form.reset()
+    discForm.reset()
 }
 
 function handleBagSubmit(e){
