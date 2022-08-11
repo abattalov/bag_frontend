@@ -45,12 +45,12 @@ class Bag{
                 b.element.classList.add('activated')
                 b.active = true
                 filteredBag = b
-                Disc.filteredByBag(filteredBag)            
+                           
             }else{
                 b.element.classList.remove('activated')
                 b.active = false
             }
-            
+            Disc.filteredByBag(filteredBag) 
         })
     }
 

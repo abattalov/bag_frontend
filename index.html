@@ -9,17 +9,36 @@
 </head>
 <body>
 
-    <h2>Disc Bag!</h2>
-    <button onclick="showForm()" id="button-form">Add a Disc</button>
-    <div id="bags-container"></div>
-    <div id="disc-form-container">
-        
-        <form id="bag-form">
-            <label for="bag-name">Bag Name:</label>
-            <input type="text" name="bag_bame" id="bag-name"><br><br>
-            <input type="submit">
-        </form>
-        
+    <h2>Welcome to Disc Bag!</h2>
+    
+    <div id="bags-container"></div><br>
+    <button onclick="showBagForm()" id="create-bag-button">Add a Bag</button>
+    <br>
+
+    <form id="bag-form"><br>
+        <label for="bag-name">Bag Name:</label>
+        <input type="text" name="bag_bame" id="bag-name"><br><br>
+        <input type="submit" class="button">
+    </form>
+    <br>
+    
+    <div id="discs-container">
+        <table id="disc-table" >
+                <tr>
+                    <th>Disc Name</th>
+                    <th>Brand</th>
+                    <th>Speed</th>
+                    <th>Glide</th>
+                    <th>Turn</th>
+                    <th>Fade</th>
+                    <th>Plastic</th>
+                    <th>Weight</th>
+                </tr>
+        </table>
+    </div>
+    <button onclick="showForm()" id="create-disc-button">Add a Disc</button> <br>
+
+    <div id="disc-form-container">        
         <form id="disc-form">
             <h2>Add a Disc:</h2>
             <label for="disc-name">Disc Name:</label>
@@ -44,21 +63,6 @@
             <input type="submit">
         </form>
     </div>
-    <div id="discs-container">
-        <table id="disc-table">
-                <tr>
-                    <th>Disc Name</th>
-                    <th>Brand</th>
-                    <th>Speed</th>
-                    <th>Glide</th>
-                    <th>Turn</th>
-                    <th>Fade</th>
-                    <th>Plastic</th>
-                    <th>Weight</th>
-                </tr>
-        </table>
-    </div>
-    
     
     <script src="src/bag.js"></script>
     <script src="src/bagService.js"></script>

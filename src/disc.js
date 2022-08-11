@@ -68,22 +68,19 @@ class Disc {
     }
 
     static filteredByBag(filteredBag){
-        if(filteredBag){
+        if(filteredBag ){
+            let discTable = document.getElementById('disc-table')
+            discTable.style.display = ''
             for(const i of Disc.all){
                 if(i.bag.id === parseInt(filteredBag.id)){
-                    // i.element.style.display = ""
-                    let a = document.getElementById(`disc-${i.id}`)
-                    a.style.display = ''
+                    let discRow = document.getElementById(`disc-${i.id}`)
+                    discRow.style.display = ''
                 }else{
-                    // i.element.style.display = "none"
-                    let a = document.getElementById(`disc-${i.id}`)
-                    a.style.display = 'none'
+                    let discRow = document.getElementById(`disc-${i.id}`)
+                    discRow.style.display = 'none'
                 }
-            }
-        }else{
-            for(const i of Disc.all){
-                // i.element.style.display = ""
             }
         }
     }
+
 }

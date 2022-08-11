@@ -36,7 +36,9 @@ class BagService{
         .then(resp => resp.json())
         .then(data => {
             const b = new Bag(data)
+            b.addToDropdown()
             b.slapOnDom()
+            
         })
     }
 

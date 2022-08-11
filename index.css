@@ -2,6 +2,10 @@
     display: none;
 }
 
+#bag-form {
+    display: none;
+}
+
 #discs-container {
     display: flex;
     flex-direction: column;
@@ -17,3 +21,11 @@ th, td {
     margin-bottom: 10px;
 }
 
+.activated {
+    color: rgb(140, 0, 255);
+}
+
+body {
+
+    background-color: rgba(3, 110, 211, 0.467);
+}

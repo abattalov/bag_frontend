@@ -18,6 +18,7 @@ const bagDropdownValue = document.getElementById('bag-dropdown');
 discSerivce.getDiscs()
 bagService.getBag()
 
+
 discForm.addEventListener('submit', handleSubmit)
 bagForm.addEventListener('submit', handleBagSubmit)
 
@@ -42,3 +43,22 @@ function showForm(){
         discForm.style.display = "block";
     }
 }
+
+function showBagForm(){
+    const discForm = document.getElementById('bag-form')
+
+    if (discForm.style.display === "block") {
+        discForm.style.display = "none";
+    } else {
+        discForm.style.display = "block";
+    }
+}
+
+function hideDiscTable(){
+    const discTable = document.getElementById('disc-table')
+
+    discTable.style.display = 'none'
+}
+
+hideDiscTable()
+
